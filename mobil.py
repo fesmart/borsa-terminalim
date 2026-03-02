@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # API Anahtarın
-API_KEY = "AIzaSyCrOiDaBt9PwQc7ucuqTMZi0_gyz9Gcrqo"
+API_KEY = st.secrets["GEMINI_API_KEY"]
 
 # --- STREAMLIT SAYFA AYARLARI ---
 st.set_page_config(page_title="AI Quant Terminal", page_icon="📈", layout="centered")
@@ -155,4 +155,5 @@ with col2:
                         res = client.models.generate_content(model='gemini-2.5-flash', contents=prompt)
                         st.info("🧠 Fon Yöneticisi Raporu:")
                         st.write(res.text)
+
                     except Exception as e: st.error(f"Hata: {e}")
